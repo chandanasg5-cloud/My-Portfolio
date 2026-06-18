@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import { profile } from '@/lib/data'
 
-export const metadata: Metadata = { title: 'Contact · Chandana S. Gowda' }
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Get in touch with Chandana S. Gowda, Senior Business Analyst based in Chicago. Open to new Business Analyst roles.',
+  alternates: { canonical: '/contact' },
+}
 
 const channels = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },

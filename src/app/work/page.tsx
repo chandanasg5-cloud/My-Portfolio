@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import { experience, projects } from '@/lib/data'
 
-export const metadata: Metadata = { title: 'Work · Chandana S. Gowda' }
+export const metadata: Metadata = {
+  title: 'Work',
+  description:
+    'Selected business analytics work by Chandana S. Gowda, including KPI dashboards, funnel analysis, and operations improvements across the UK and India.',
+  alternates: { canonical: '/work' },
+}
 
 export default function WorkPage() {
   return (

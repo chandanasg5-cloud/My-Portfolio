@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import { about, certifications, education, skills } from '@/lib/data'
 
-export const metadata: Metadata = { title: 'About · Chandana S. Gowda' }
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Chandana S. Gowda is a Senior Business Analyst with a Master of Science in Business Analytics from DePaul University, skilled in SQL, Tableau, Power BI, and hypothesis-driven analysis.',
+  alternates: { canonical: '/about' },
+}
 
 export default function AboutPage() {
   return (
