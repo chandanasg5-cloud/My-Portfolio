@@ -1,3 +1,4 @@
+'use client'
 import { profile } from '@/lib/data'
 
 export default function Hero() {
