@@ -20,7 +20,7 @@ export default function Home() {
         <Education />
         <Contact />
       </main>
-      <footer style={{ textAlign: 'center', padding: '2rem', borderTop: '1px solid var(--border)', fontSize: '0.8rem', color: 'var(--muted)' }}>
+      <footer style={{ textAlign: 'center', padding: '2rem', borderTop: '1px solid var(--border-color)', fontSize: '0.8rem', color: 'var(--muted-color)' }}>
         © 2025 Chandana S. Gowda · Chicago, IL
       </footer>
     </>

@@ -9,7 +9,7 @@ export default function Skills() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
           {skills.map(({ category, items }) => (
-            <div key={category} style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 12, padding: '1.5rem' }}>
+            <div key={category} style={{ background: 'white', border: '1px solid var(--border-color)', borderRadius: 12, padding: '1.5rem' }}>
               <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--teal)', marginBottom: '1rem' }}>{category}</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                 {items.map(item => (

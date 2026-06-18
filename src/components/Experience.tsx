@@ -8,7 +8,7 @@ export default function Experience() {
         <h2 style={{ fontSize: '1.875rem', fontWeight: 700, letterSpacing: '-0.5px', marginBottom: '3rem' }}>Professional history</h2>
 
         <div style={{ position: 'relative' }}>
-          <div style={{ position: 'absolute', left: 0, top: 8, bottom: 0, width: 2, background: 'var(--border)' }} />
+          <div style={{ position: 'absolute', left: 0, top: 8, bottom: 0, width: 2, background: 'var(--border-color)' }} />
 
           {experience.map((job, i) => (
             <div key={i} style={{ position: 'relative', paddingLeft: '2rem', paddingBottom: i < experience.length - 1 ? '2.5rem' : 0 }}>
@@ -18,11 +18,11 @@ export default function Experience() {
                 <span style={{ fontSize: '1.0625rem', fontWeight: 600 }}>{job.role}</span>
                 <span style={{ fontSize: '0.8rem', color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap' }}>{job.period}</span>
               </div>
-              <div style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '0.875rem' }}>{job.company} — {job.location}</div>
+              <div style={{ fontSize: '0.875rem', color: 'var(--muted-color)', marginBottom: '0.875rem' }}>{job.company} — {job.location}</div>
 
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {job.bullets.map((b, j) => (
-                  <li key={j} style={{ fontSize: '0.875rem', color: 'var(--muted)', paddingLeft: '1rem', position: 'relative', lineHeight: 1.65 }}>
+                  <li key={j} style={{ fontSize: '0.875rem', color: 'var(--muted-color)', paddingLeft: '1rem', position: 'relative', lineHeight: 1.65 }}>
                     <span style={{ position: 'absolute', left: 0, color: 'var(--teal)', fontSize: '0.7rem', top: 3 }}>▸</span>
                     {b}
                   </li>

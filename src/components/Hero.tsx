@@ -16,7 +16,7 @@ export default function Hero() {
             <em style={{ fontStyle: 'normal', color: 'var(--teal)' }}>strategic decisions</em>
           </h1>
 
-          <p style={{ fontSize: '1.0625rem', color: 'var(--muted)', lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
+          <p style={{ fontSize: '1.0625rem', color: 'var(--muted-color)', lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
             Senior Business Analyst with 4+ years of experience in operations, risk, and marketing analytics.
             I bridge the gap between complex data and clear business strategy — using SQL, Tableau, Power BI,
             and rigorous hypothesis-driven thinking to drive measurable outcomes.
@@ -37,7 +37,7 @@ export default function Hero() {
               { icon: '🎓', text: 'M.S. Business Analytics — DePaul University' },
               { icon: '✅', text: 'Open to new opportunities' },
             ].map(({ icon, text }) => (
-              <span key={text} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8125rem', color: 'var(--muted)' }}>
+              <span key={text} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8125rem', color: 'var(--muted-color)' }}>
                 {icon} {text}
               </span>
             ))}

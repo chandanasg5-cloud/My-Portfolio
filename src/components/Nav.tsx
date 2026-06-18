@@ -17,7 +17,7 @@ export default function Nav() {
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       background: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.8)',
       backdropFilter: 'blur(8px)',
-      borderBottom: '1px solid var(--border)',
+      borderBottom: '1px solid var(--border-color)',
       transition: 'background 0.3s',
       padding: '0 2rem',
     }}>
@@ -30,9 +30,9 @@ export default function Nav() {
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
-                style={{ textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500, color: 'var(--muted)', transition: 'color 0.2s' }}
+                style={{ textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500, color: 'var(--muted-color)', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--teal)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted-color)')}
               >
                 {link}
               </a>
