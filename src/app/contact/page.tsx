@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { profile } from '@/lib/data'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -26,27 +27,39 @@ export default function ContactPage() {
         framing, I would like to hear about it.
       </p>
 
-      <dl className="mt-14 max-w-lg divide-y divide-border border-y border-border">
-        {channels.map(({ label, value, href }) => (
-          <div key={label} className="flex items-center justify-between py-5">
-            <dt className="text-sm uppercase tracking-[0.18em] text-muted-foreground">{label}</dt>
-            <dd className="text-right">
-              {href ? (
-                <a
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  className="font-medium transition-colors hover:text-primary"
-                >
-                  {value}
-                </a>
-              ) : (
-                <span className="font-medium">{value}</span>
-              )}
-            </dd>
+      <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_1.1fr]">
+        <dl className="divide-y divide-border border-y border-border">
+          {channels.map(({ label, value, href }) => (
+            <div key={label} className="flex items-center justify-between py-5">
+              <dt className="text-sm uppercase tracking-[0.18em] text-muted-foreground">{label}</dt>
+              <dd className="text-right">
+                {href ? (
+                  <a
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel="noopener noreferrer"
+                    className="font-medium transition-colors hover:text-primary"
+                  >
+                    {value}
+                  </a>
+                ) : (
+                  <span className="font-medium">{value}</span>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div>
+          <h2 className="font-serif text-2xl font-semibold">Send a message</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            For recruiters and hiring teams. Drop a note and it reaches my inbox directly.
+          </p>
+          <div className="mt-6">
+            <ContactForm />
           </div>
-        ))}
-      </dl>
+        </div>
+      </div>
     </section>
   )
 }
