@@ -10,10 +10,19 @@ export const profile = {
 }
 
 export const stats = [
-  { number: '4+', label: 'Years of experience' },
-  { number: '15+', label: 'KPIs tracked per role' },
-  { number: '20%+', label: 'Workflow efficiency gained' },
-  { number: '3.98', label: 'Graduate GPA' },
+  { number: '4+', label: 'Years of experience', trend: [2, 3, 3, 4, 4, 5, 6] },
+  { number: '15+', label: 'KPIs tracked per role', trend: [4, 6, 7, 9, 11, 13, 15] },
+  { number: '20%+', label: 'Workflow efficiency gained', trend: [5, 8, 9, 12, 15, 18, 21] },
+  { number: '3.98', label: 'Graduate GPA', trend: [3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.98] },
+]
+
+export const skillLevels = [
+  { name: 'SQL', level: 92 },
+  { name: 'Tableau', level: 90 },
+  { name: 'Power BI', level: 85 },
+  { name: 'Excel (VBA, Power Pivot)', level: 95 },
+  { name: 'Statistical Modeling', level: 82 },
+  { name: 'Alteryx', level: 78 },
 ]
 
 export const about = [
@@ -78,12 +87,16 @@ export const projects = [
     org: 'DePaul University Capstone',
     description:
       'A multi-stage funnel analysis identifying KPI drop-off and workflow bottlenecks in a compliance process. Recommendations improved tracking efficiency by roughly 30 percent.',
+    metric: '+30%',
+    metricLabel: 'tracking efficiency',
   },
   {
     title: 'Operations KPI Dashboard',
     org: 'Marketplace Direct Ltd',
     description:
       'A Tableau and Excel reporting suite covering 15+ KPIs across procurement and operations, enabling faster decisions across five business units.',
+    metric: '15+',
+    metricLabel: 'KPIs unified',
   },
 ]
 

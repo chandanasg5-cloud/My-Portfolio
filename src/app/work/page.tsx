@@ -38,8 +38,14 @@ export default function WorkPage() {
       <h2 className="mt-24 font-serif text-2xl font-semibold">Selected projects</h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {projects.map((p) => (
-          <div key={p.title} className="rounded-2xl border border-border p-7 transition-colors hover:border-foreground/30">
-            <p className="text-xs uppercase tracking-[0.18em] text-primary">{p.org}</p>
+          <div key={p.title} className="rounded-2xl border border-border bg-card p-7 transition-colors hover:border-primary/40">
+            <div className="flex items-start justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.18em] text-primary">{p.org}</p>
+              <div className="text-right">
+                <p className="font-serif text-2xl font-semibold leading-none text-primary">{p.metric}</p>
+                <p className="mt-1 text-[11px] text-muted-foreground">{p.metricLabel}</p>
+              </div>
+            </div>
             <h3 className="mt-3 font-serif text-lg font-semibold leading-snug">{p.title}</h3>
             <p className="mt-3 leading-relaxed text-muted-foreground">{p.description}</p>
           </div>

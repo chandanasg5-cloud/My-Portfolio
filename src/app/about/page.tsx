@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { about, certifications, education, skills } from '@/lib/data'
+import { about, certifications, education, skills, skillLevels } from '@/lib/data'
+import SkillBars from '@/components/viz/SkillBars'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -21,8 +22,12 @@ export default function AboutPage() {
 
       <div className="mt-20 grid gap-16 sm:grid-cols-2">
         <div>
-          <h2 className="font-serif text-2xl font-semibold">Skills</h2>
-          <div className="mt-6 space-y-6">
+          <h2 className="font-serif text-2xl font-semibold">Tools and proficiency</h2>
+          <div className="mt-6 rounded-2xl border border-border bg-card p-6">
+            <SkillBars skills={skillLevels} />
+          </div>
+
+          <div className="mt-8 space-y-5">
             {skills.map(({ category, items }) => (
               <div key={category}>
                 <p className="text-xs uppercase tracking-[0.18em] text-primary">{category}</p>
