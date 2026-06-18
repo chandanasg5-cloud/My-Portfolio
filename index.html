@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandana S. Gowda — Business Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --teal-dark: #0f766e;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-soft: #f9fafb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--teal);
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 3rem;
+      color: var(--text);
+    }
+
+    /* HERO */
+    #hero {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+      background: var(--bg);
+    }
+    .hero-content { max-width: 680px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow span { width: 24px; height: 2px; background: var(--teal); display: block; }
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    h1 em { font-style: normal; color: var(--teal); }
+    .hero-summary {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      border: 2px solid var(--teal);
+    }
+    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+    .btn-outline {
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--teal);
+    }
+    .btn-outline:hover { background: var(--teal-light); }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    .hero-meta-item svg { color: var(--teal); }
+
+    /* ABOUT */
+    #about { background: var(--bg-soft); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .cert-list { margin-top: 1.5rem; }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8375rem;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -5px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-role {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .timeline-company {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.875rem;
+    }
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .timeline-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--bg-soft); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-category {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .skill-category-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.775rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* PROJECTS */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(13,148,136,0.1);
+      border-color: var(--teal);
+    }
+    .project-icon {
+      width: 44px; height: 44px;
+      background: var(--teal-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .project-icon svg { color: var(--teal); }
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .project-org {
+      font-size: 0.775rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .project-tag {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* EDUCATION */
+    #education { background: var(--bg-soft); }
+    .edu-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .edu-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .edu-accent {
+      width: 4px;
+      height: 100%;
+      min-height: 40px;
+      background: var(--teal);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .edu-degree {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .edu-school {
+      font-size: 0.8375rem;
+      color: var(--muted);
+    }
+    .edu-gpa {
+      font-size: 0.775rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 0.25rem;
+    }
+
+    /* CONTACT */
+    #contact { background: var(--bg); }
+    .contact-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner .section-label,
+    .contact-inner .section-title { text-align: center; }
+    .contact-inner .section-title { margin-bottom: 1rem; }
+    .contact-sub {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 1.2rem;
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: var(--teal-light);
+    }
+    .contact-link svg { flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Chandana S. Gowda</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span>Business Analyst</div>
+      <h1>Turning data into<br /><em>strategic decisions</em></h1>
+      <p class="hero-summary">
+        Senior Business Analyst with 4+ years of experience in operations, risk, and marketing analytics.
+        I bridge the gap between complex data and clear business strategy — using SQL, Tableau, Power BI,
+        and rigorous hypothesis-driven thinking to drive measurable outcomes.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#experience" class="btn btn-outline">View my work</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Chicago, IL
+        </span>
+        <span class="hero-meta-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          M.S. Business Analytics — DePaul University
+        </span>
+        <span class="hero-meta-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Open to new opportunities
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Analytical thinker. Strategic partner.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Senior Business Analyst with a track record of translating complex, ambiguous data into
+          clear recommendations that move the needle. My work spans operations efficiency, KPI development,
+          risk analysis, and customer behavior — always with a focus on measurable business impact.
+        </p>
+        <p>
+          With a Master's in Business Analytics from DePaul University (GPA 3.98) and hands-on experience
+          across UK and India-based organizations, I bring both quantitative rigor and cross-cultural
+          stakeholder fluency to every engagement.
+        </p>
+        <p>
+          I thrive in environments that reward structured thinking: framing the problem, developing
+          hypotheses, executing analysis, and presenting findings that drive action — not just reports.
+        </p>
+        <div class="cert-list">
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Certifications</p>
+          <div class="cert-item"><span class="cert-dot"></span>Prince2 Foundation</div>
+          <div class="cert-item"><span class="cert-dot"></span>MOS — Excel, Word, PowerPoint</div>
+          <div class="cert-item"><span class="cert-dot"></span>Alteryx Micro-Credential</div>
+          <div class="cert-item"><span class="cert-dot"></span>KPMG Data Analytics</div>
+          <div class="cert-item"><span class="cert-dot"></span>Tata Data Visualization</div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Years of experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">KPIs tracked per role</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20%+</div>
+          <div class="stat-label">Workflow efficiency gain</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3.98</div>
+          <div class="stat-label">GPA — DePaul University</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Professional history</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Business Analyst, Technology &amp; Operations</span>
+          <span class="timeline-date">Jun 2020 – Aug 2023</span>
+        </div>
+        <div class="timeline-company">Marketplace Direct Ltd — London, UK</div>
+        <ul class="timeline-bullets">
+          <li>Applied hypothesis-driven analysis to identify operational performance gaps, developing recommendations that drove a 20%+ improvement in workflow efficiency across departments.</li>
+          <li>Built and maintained Tableau and Excel reporting solutions tracking 15+ KPIs across procurement and operations, enabling faster decision-making for senior stakeholders.</li>
+          <li>Partnered with IT, finance, and operations teams to frame business problems and support end-to-end implementation of process improvements across 5+ business units.</li>
+          <li>Conducted structured root cause analysis on recurring service issues and presented findings to stakeholders of varying technical backgrounds.</li>
+          <li>Supported product rollouts by defining business requirements, coordinating UAT, tracking defects, and developing post-launch monitoring plans.</li>
+          <li>Produced compliance and audit documentation, supporting rigorous reporting standards across cross-functional and regulatory reviews.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Operations &amp; Quality Analyst</span>
+          <span class="timeline-date">Feb 2019 – Dec 2019</span>
+        </div>
+        <div class="timeline-company">Bundle Technologies Pvt Ltd (Swiggy) — Bangalore, India</div>
+        <ul class="timeline-bullets">
+          <li>Monitored 15+ customer and operational KPIs across a high-volume platform processing thousands of daily transactions, identifying trend shifts and risk signals in partner performance.</li>
+          <li>Developed and tested hypotheses around service failure drivers using root cause analysis, reducing reporting discrepancies by 15% and improving execution quality scores by 20%+.</li>
+          <li>Conducted customer behavior analysis across restaurant partner and end-user segments, surfacing insights that informed operational strategy and service design.</li>
+          <li>Collaborated with operations, support, and product stakeholders to scope, test, and implement workflow improvements in a fast-paced environment.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-role">Project Assistant</span>
+          <span class="timeline-date">Jun 2018 – Sep 2018</span>
+        </div>
+        <div class="timeline-company">Posiflex Technologies Pvt Ltd — Bangalore, India</div>
+        <ul class="timeline-bullets">
+          <li>Conducted market and competitive research to support strategic product evaluation and pricing discussions, preparing executive presentations for senior leadership.</li>
+          <li>Assisted with business requirements analysis and project coordination from scoping through delivery.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">Core competencies</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-category-title">Analytics &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Alteryx</span>
+          <span class="skill-tag">Google BigQuery</span>
+          <span class="skill-tag">Excel (Advanced)</span>
+          <span class="skill-tag">VBA</span>
+          <span class="skill-tag">Power Pivot</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-title">Quantitative Methods</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Statistical Modeling</span>
+          <span class="skill-tag">Hypothesis Testing</span>
+          <span class="skill-tag">Funnel Analysis</span>
+          <span class="skill-tag">Trend Analysis</span>
+          <span class="skill-tag">Forecasting</span>
+          <span class="skill-tag">Customer Segmentation</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-title">Business Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">KPI Development</span>
+          <span class="skill-tag">Credit &amp; Risk Analysis</span>
+          <span class="skill-tag">Market Research</span>
+          <span class="skill-tag">Product Analysis</span>
+          <span class="skill-tag">Strategic Recommendations</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-title">Execution &amp; Collaboration</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Problem Framing</span>
+          <span class="skill-tag">Solution Design</span>
+          <span class="skill-tag">UAT</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">MS Project</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Executive Presentations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Featured work</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="project-title">Funnel &amp; KPI Analysis — Hazmat Industry</div>
+        <div class="project-org">DePaul University Capstone</div>
+        <p class="project-desc">
+          Framed the business problem, developed hypotheses, and executed a multi-stage funnel analysis
+          to identify KPI drop-off points and workflow bottlenecks within a hazmat compliance process.
+          Delivered strategic recommendations that improved KPI tracking efficiency by ~30%, along with a
+          monitoring plan presented to stakeholders.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Tableau</span>
+          <span class="project-tag">Excel</span>
+          <span class="project-tag">Funnel Analysis</span>
+          <span class="project-tag">KPI Modeling</span>
+          <span class="project-tag">Hypothesis Testing</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="project-title">Operations KPI Dashboard</div>
+        <div class="project-org">Marketplace Direct Ltd</div>
+        <p class="project-desc">
+          Designed and maintained a multi-function reporting suite in Tableau and Excel that tracked 15+ KPIs
+          across procurement and operations. Enabled faster, higher-quality decisions for senior business
+          stakeholders across 5+ business units.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Tableau</span>
+          <span class="project-tag">Excel</span>
+          <span class="project-tag">KPI Tracking</span>
+          <span class="project-tag">Operations Analytics</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="project-title">Customer Behavior &amp; Service Quality Analysis</div>
+        <div class="project-org">Bundle Technologies (Swiggy)</div>
+        <p class="project-desc">
+          Analyzed customer behavior across restaurant partner and end-user segments on a platform processing
+          thousands of daily transactions. Root cause analysis reduced reporting discrepancies by 15% and
+          improved execution quality scores by 20%+.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Root Cause Analysis</span>
+          <span class="project-tag">Customer Segmentation</span>
+          <span class="project-tag">Data Validation</span>
+          <span class="project-tag">Operations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-accent"></div>
+        <div>
+          <div class="edu-degree">M.S. Business Analytics</div>
+          <div class="edu-school">DePaul University, Chicago, IL — May 2025</div>
+          <div class="edu-gpa">GPA: 3.98 / 4.00</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-accent" style="background: #99f6e4;"></div>
+        <div>
+          <div class="edu-degree">M.S. International Business</div>
+          <div class="edu-school">Kingston University, London, UK</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-accent" style="background: #99f6e4;"></div>
+        <div>
+          <div class="edu-degree">MBA — Marketing &amp; Human Resources</div>
+          <div class="edu-school">Jain University, Bangalore, India</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-accent" style="background: #99f6e4;"></div>
+        <div>
+          <div class="edu-degree">B.E. Electronics &amp; Communication</div>
+          <div class="edu-school">Visvesvaraya Technological University, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's connect</h2>
+      <p class="contact-sub">
+        I'm currently open to new Business Analyst opportunities in Chicago and beyond.
+        Whether you have a role in mind or just want to talk data — I'd love to hear from you.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:chandanasg5@gmail.com" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          chandanasg5@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/chandanasgowda26" target="_blank" rel="noopener" class="contact-link">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="tel:+12629932691" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (262) 993-2691
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Chandana S. Gowda · Built with care · Chicago, IL</p>
+</footer>
+
+</body>
+</html>
