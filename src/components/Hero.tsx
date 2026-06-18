@@ -3,7 +3,7 @@ import { profile } from '@/lib/data'
 
 export default function Hero() {
   return (
-    <section id="hero" style={{ paddingTop: '8rem', paddingBottom: '5rem', padding: '8rem 2rem 5rem' }}>
+    <section id="hero" style={{ padding: '8rem 2rem 5rem' }}>
       <div style={{ maxWidth: 1000, margin: '0 auto' }}>
         <div style={{ maxWidth: 680 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', fontWeight: 600, color: 'var(--teal)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
