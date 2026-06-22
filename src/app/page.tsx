@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { stats } from '@/lib/data'
 import Hero from '@/components/Hero'
 import DashboardCard from '@/components/viz/DashboardCard'
-import Sparkline from '@/components/viz/Sparkline'
+import TrendBars from '@/components/viz/TrendBars'
 import Reveal from '@/components/viz/Reveal'
 import LoreHeading from '@/components/theme/LoreHeading'
 import ElvenDivider from '@/components/theme/ElvenDivider'
@@ -52,7 +52,7 @@ export default function Home() {
                 <p className="font-display text-3xl font-semibold text-primary">{number}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{label}</p>
                 <div className="mt-4">
-                  <Sparkline points={trend} />
+                  <TrendBars points={trend} />
                 </div>
               </div>
             ))}
