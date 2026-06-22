@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { stats } from '@/lib/data'
 import Hero from '@/components/Hero'
 import DashboardCard from '@/components/viz/DashboardCard'
-import TrendBars from '@/components/viz/TrendBars'
 import Reveal from '@/components/viz/Reveal'
 import LoreHeading from '@/components/theme/LoreHeading'
 import ElvenDivider from '@/components/theme/ElvenDivider'
@@ -42,18 +41,16 @@ export default function Home() {
             divider
           />
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map(({ number, label, trend }) => (
+            {stats.map(({ number, label }) => (
               <div
                 key={label}
-                className="ornate-border relative rounded-2xl bg-card p-5 transition-colors hover:border-accent/50"
+                className="ornate-border relative rounded-2xl bg-card p-7 text-center transition-colors hover:border-accent/50"
               >
                 <Ornament position="tl" />
                 <Ornament position="br" />
-                <p className="font-display text-3xl font-semibold text-primary">{number}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{label}</p>
-                <div className="mt-4">
-                  <TrendBars points={trend} />
-                </div>
+                <p className="font-display text-4xl font-semibold text-primary sm:text-5xl">{number}</p>
+                <div className="mx-auto mt-4 h-px w-10 bg-accent/60" />
+                <p className="mt-4 text-sm text-muted-foreground">{label}</p>
               </div>
             ))}
           </div>
