@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { about, certifications, education, skills, skillLevels } from '@/lib/data'
+import Image from 'next/image'
+import { about, certifications, education, skills, skillLevels, profile } from '@/lib/data'
 import SkillBars from '@/components/viz/SkillBars'
 import PageHeader from '@/components/theme/PageHeader'
 import LoreHeading from '@/components/theme/LoreHeading'
@@ -21,10 +22,28 @@ export default function AboutPage() {
         line="A short account of the road walked, the crafts learned, and the lore gathered along the way."
       />
 
-      <div className="mt-10 max-w-2xl space-y-6 text-lg leading-relaxed text-muted-foreground">
-        {about.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
+      <div className="mt-12 grid items-start gap-10 sm:grid-cols-[300px_1fr] sm:gap-12">
+        {/* Framed portrait — illuminated manuscript style */}
+        <figure className="ornate-border gold-glow relative mx-auto w-full max-w-[300px] overflow-hidden rounded-2xl bg-card p-2">
+          <Ornament position="tl" className="z-10" />
+          <Ornament position="tr" className="z-10" />
+          <Ornament position="bl" className="z-10" />
+          <Ornament position="br" className="z-10" />
+          <Image
+            src="/portrait.jpg"
+            alt={`${profile.name}, ${profile.title}`}
+            width={720}
+            height={900}
+            priority
+            className="h-auto w-full rounded-xl object-cover"
+          />
+        </figure>
+
+        <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+          {about.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       </div>
 
       <div className="mt-20 grid gap-16 sm:grid-cols-2">
