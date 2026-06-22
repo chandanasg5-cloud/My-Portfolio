@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { about, certifications, education, skills, skillLevels } from '@/lib/data'
 import SkillBars from '@/components/viz/SkillBars'
+import PageHeader from '@/components/theme/PageHeader'
+import LoreHeading from '@/components/theme/LoreHeading'
+import Ornament from '@/components/theme/Ornament'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -11,8 +14,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="py-20 sm:py-28">
-      <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">About</h1>
+    <section className="pb-24">
+      <PageHeader
+        label="About"
+        lore="The Traveller"
+        line="A short account of the road walked, the crafts learned, and the lore gathered along the way."
+      />
 
       <div className="mt-10 max-w-2xl space-y-6 text-lg leading-relaxed text-muted-foreground">
         {about.map((p, i) => (
@@ -22,15 +29,19 @@ export default function AboutPage() {
 
       <div className="mt-20 grid gap-16 sm:grid-cols-2">
         <div>
-          <h2 className="font-serif text-2xl font-semibold">Tools and proficiency</h2>
-          <div className="mt-6 rounded-2xl border border-border bg-card p-6">
+          <LoreHeading label="Tools & Proficiency" lore="Crafts Mastered" />
+          <div className="ornate-border relative mt-6 rounded-2xl bg-card p-6">
+            <Ornament position="tl" />
+            <Ornament position="br" />
             <SkillBars skills={skillLevels} />
           </div>
 
           <div className="mt-8 space-y-5">
             {skills.map(({ category, items }) => (
               <div key={category}>
-                <p className="text-xs uppercase tracking-[0.18em] text-primary">{category}</p>
+                <p className="font-display text-xs uppercase tracking-[0.18em] text-gold">
+                  {category}
+                </p>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{items.join(', ')}</p>
               </div>
             ))}
@@ -38,25 +49,25 @@ export default function AboutPage() {
         </div>
 
         <div>
-          <h2 className="font-serif text-2xl font-semibold">Education</h2>
+          <LoreHeading label="Education" lore="Lore Learned" />
           <ul className="mt-6 space-y-5">
             {education.map((e) => (
-              <li key={e.degree} className="border-l border-border pl-4">
+              <li key={e.degree} className="border-l-2 border-accent/40 pl-4">
                 <p className="font-medium">{e.degree}</p>
                 <p className="text-sm text-muted-foreground">
                   {e.school}
                   {e.year ? `, ${e.year}` : ''}
                 </p>
-                {e.gpa && <p className="mt-0.5 text-sm text-primary">GPA {e.gpa}</p>}
+                {e.gpa && <p className="mt-0.5 text-sm text-gold">GPA {e.gpa}</p>}
               </li>
             ))}
           </ul>
 
-          <h2 className="mt-12 font-serif text-2xl font-semibold">Certifications</h2>
+          <LoreHeading className="mt-12" label="Certifications" lore="Marks of Mastery" />
           <ul className="mt-6 space-y-2 text-muted-foreground">
             {certifications.map((c) => (
               <li key={c} className="flex items-start gap-2">
-                <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-accent/70" />
                 {c}
               </li>
             ))}

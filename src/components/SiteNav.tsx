@@ -15,10 +15,21 @@ export default function SiteNav() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-accent/25 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/65">
       <nav className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6 sm:px-8">
-        <Link href="/" className="font-serif text-lg font-semibold tracking-tight">
-          Chandana Gowda
+        <Link href="/" className="group flex items-center gap-2.5">
+          {/* small elven leaf glyph */}
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden className="text-accent">
+            <path
+              d="M9 1 C12 5 12 13 9 17 C6 13 6 5 9 1 Z"
+              fill="currentColor"
+              fillOpacity="0.85"
+            />
+            <path d="M9 3 V15" stroke="hsl(var(--background))" strokeWidth="0.8" />
+          </svg>
+          <span className="font-display text-base font-semibold uppercase tracking-[0.14em]">
+            Chandana Gowda
+          </span>
         </Link>
         <ul className="flex items-center gap-7">
           {links.map(({ href, label }) => {
@@ -34,7 +45,7 @@ export default function SiteNav() {
                 >
                   {label}
                   {active && (
-                    <span className="absolute -bottom-1.5 left-0 h-px w-full bg-primary" />
+                    <span className="absolute -bottom-1.5 left-0 h-px w-full bg-accent" />
                   )}
                 </Link>
               </li>

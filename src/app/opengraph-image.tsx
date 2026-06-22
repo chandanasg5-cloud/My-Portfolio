@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#fdfcfa',
+          background: '#f3ecdf',
           padding: '80px',
         }}
       >
@@ -25,8 +25,8 @@ export default function OpengraphImage() {
               width: 72,
               height: 72,
               borderRadius: 16,
-              background: '#0d7c6e',
-              color: '#fdfcfa',
+              background: '#2e5a49',
+              color: '#e9c879',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -36,21 +36,21 @@ export default function OpengraphImage() {
           >
             CG
           </div>
-          <div style={{ fontSize: 28, color: '#0d7c6e', letterSpacing: 4 }}>
+          <div style={{ fontSize: 28, color: '#b07a2e', letterSpacing: 4 }}>
             SENIOR BUSINESS ANALYST
           </div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 76, fontWeight: 700, color: '#1c1917', lineHeight: 1.1 }}>
+          <div style={{ fontSize: 76, fontWeight: 700, color: '#2e2620', lineHeight: 1.1 }}>
             Chandana S. Gowda
           </div>
-          <div style={{ fontSize: 34, color: '#57534e', marginTop: 24, maxWidth: 900 }}>
+          <div style={{ fontSize: 34, color: '#6b5d4f', marginTop: 24, maxWidth: 900 }}>
             Turning complex data into clear, defensible recommendations.
           </div>
         </div>
 
-        <div style={{ fontSize: 26, color: '#78716c' }}>chandanasgowda.com</div>
+        <div style={{ fontSize: 26, color: '#8a7a66' }}>chandanasgowda.com</div>
       </div>
     ),
     { ...size }

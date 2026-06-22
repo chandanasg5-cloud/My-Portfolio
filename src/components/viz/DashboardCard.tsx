@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Ornament from '@/components/theme/Ornament'
 
 const bars = [38, 52, 44, 67, 58, 80, 72]
 const line = [20, 34, 28, 46, 40, 60, 76]
@@ -21,16 +22,21 @@ export default function DashboardCard() {
       initial={{ opacity: 0, y: 24, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-      className="relative w-full rounded-3xl border border-border bg-card p-6 shadow-[0_24px_60px_-30px_rgba(13,124,110,0.45)]"
+      className="ornate-border gold-glow relative w-full rounded-3xl bg-card p-6"
     >
+      <Ornament position="tl" />
+      <Ornament position="tr" />
+      <Ornament position="bl" />
+      <Ornament position="br" />
+
       {/* Header row */}
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Performance</p>
-          <p className="font-serif text-lg font-semibold">KPI Overview</p>
+          <p className="font-serif text-xs italic text-gold">The Ledger of Deeds</p>
+          <p className="font-display text-lg font-semibold tracking-wide">KPI Overview</p>
         </div>
         <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
           Live
         </div>
       </div>
@@ -47,23 +53,32 @@ export default function DashboardCard() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 + i * 0.1 }}
-            className="rounded-xl bg-muted/60 p-3"
+            className="rounded-xl border border-border/60 bg-muted/50 p-3"
           >
-            <p className="font-serif text-lg font-semibold text-primary">{m.v}</p>
+            <p className="font-display text-lg font-semibold text-primary">{m.v}</p>
             <p className="text-[11px] text-muted-foreground">{m.l}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Line chart */}
-      <div className="rounded-xl bg-muted/40 p-4">
+      <div className="rounded-xl border border-border/60 bg-muted/30 p-4">
         <svg viewBox={`0 0 ${W} ${H}`} className="h-[120px] w-full overflow-visible">
           {[0.25, 0.5, 0.75].map((g) => (
-            <line key={g} x1="0" x2={W} y1={H * g} y2={H * g} stroke="hsl(var(--border))" strokeWidth="1" />
+            <line
+              key={g}
+              x1="0"
+              x2={W}
+              y1={H * g}
+              y2={H * g}
+              stroke="hsl(var(--accent) / 0.18)"
+              strokeWidth="1"
+              strokeDasharray="2 4"
+            />
           ))}
           <motion.path
             d={areaPath}
-            fill="hsl(var(--primary) / 0.1)"
+            fill="hsl(var(--accent) / 0.12)"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -71,7 +86,7 @@ export default function DashboardCard() {
           <motion.path
             d={linePath}
             fill="none"
-            stroke="hsl(var(--primary))"
+            stroke="hsl(var(--accent))"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -86,7 +101,7 @@ export default function DashboardCard() {
               cy={H - (v / max) * H}
               r="3"
               fill="hsl(var(--card))"
-              stroke="hsl(var(--primary))"
+              stroke="hsl(var(--accent))"
               strokeWidth="2"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -102,7 +117,11 @@ export default function DashboardCard() {
           <div key={i} className="flex flex-1 flex-col items-center gap-1.5">
             <div className="flex h-16 w-full items-end">
               <motion.div
-                className="w-full rounded-t-[4px] bg-primary/80"
+                className="w-full rounded-t-[4px]"
+                style={{
+                  background:
+                    'linear-gradient(180deg, hsl(156 34% 34%), hsl(156 34% 24%))',
+                }}
                 initial={{ height: 0 }}
                 animate={{ height: `${b}%` }}
                 transition={{ duration: 0.7, ease: 'easeOut', delay: 0.7 + i * 0.07 }}

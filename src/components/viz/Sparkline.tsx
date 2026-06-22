@@ -29,7 +29,7 @@ export default function Sparkline({
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className="overflow-visible">
       <motion.path
         d={area}
-        fill="hsl(var(--primary) / 0.08)"
+        fill="hsl(var(--accent) / 0.10)"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -38,7 +38,7 @@ export default function Sparkline({
       <motion.path
         d={line}
         fill="none"
-        stroke="hsl(var(--primary))"
+        stroke="hsl(var(--accent))"
         strokeWidth={1.75}
         strokeLinecap="round"
         strokeLinejoin="round"

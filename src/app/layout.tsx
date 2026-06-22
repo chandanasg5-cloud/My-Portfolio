@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces } from 'next/font/google'
+import { Inter, Fraunces, Cinzel } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import SiteNav from '@/components/SiteNav'
@@ -12,6 +12,7 @@ const SITE_URL = 'https://chandanasgowda.com'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-serif' })
+const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-display' })
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -83,7 +84,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${cinzel.variable}`}>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Script
           id="person-jsonld"

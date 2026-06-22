@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       'Senior Business Analyst turning complex data into clear, defensible recommendations.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#fdfcfa',
-    theme_color: '#0d7c6e',
+    background_color: '#f3ecdf',
+    theme_color: '#2e5a49',
     icons: [{ src: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
   }
 }

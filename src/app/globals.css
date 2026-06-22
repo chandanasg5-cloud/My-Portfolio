@@ -4,26 +4,33 @@
 
 @layer base {
   :root {
-    --background: 40 33% 99%;
-    --foreground: 20 14% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14% 10%;
-    --primary: 174 72% 28%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 96%;
-    --secondary-foreground: 20 14% 10%;
-    --muted: 40 16% 94%;
-    --muted-foreground: 25 8% 42%;
-    --accent: 40 20% 96%;
-    --accent-foreground: 20 14% 10%;
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 30 12% 90%;
-    --input: 30 12% 90%;
-    --ring: 174 72% 28%;
+    /* Rivendell — parchment day palette */
+    --background: 40 38% 94%;
+    --foreground: 28 22% 15%;
+    --card: 42 46% 97%;
+    --card-foreground: 28 22% 15%;
+    --popover: 42 46% 97%;
+    --popover-foreground: 28 22% 15%;
+    /* Rivendell forest green */
+    --primary: 156 34% 27%;
+    --primary-foreground: 42 46% 97%;
+    --secondary: 40 24% 90%;
+    --secondary-foreground: 28 22% 15%;
+    --muted: 40 22% 89%;
+    --muted-foreground: 28 12% 38%;
+    /* mithril / autumn gold */
+    --accent: 38 62% 47%;
+    --accent-foreground: 28 30% 12%;
+    --destructive: 4 64% 42%;
+    --destructive-foreground: 42 46% 97%;
+    --border: 38 24% 82%;
+    --input: 38 24% 82%;
+    --ring: 38 62% 47%;
     --radius: 0.5rem;
+
+    /* twilight tones for the hero */
+    --twilight: 215 38% 12%;
+    --twilight-deep: 220 42% 8%;
   }
 }
 
@@ -36,12 +43,100 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* clip (not hidden) keeps position: sticky working on the nav */
+    overflow-x: clip;
     font-feature-settings: 'kern', 'liga';
+    /* faint parchment grain */
+    background-image:
+      radial-gradient(hsl(38 30% 70% / 0.05) 1px, transparent 1px),
+      radial-gradient(hsl(38 40% 60% / 0.04) 1px, transparent 1px);
+    background-size: 18px 18px, 31px 31px;
+    background-position: 0 0, 9px 14px;
   }
   .font-serif {
     font-family: var(--font-serif), Georgia, serif;
   }
   .font-sans {
     font-family: var(--font-sans), system-ui, sans-serif;
+  }
+  .font-display {
+    font-family: var(--font-display), var(--font-serif), Georgia, serif;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  /* gold gradient text for accents */
+  .text-gold {
+    color: hsl(var(--accent));
+  }
+  .gold-gradient {
+    background: linear-gradient(
+      100deg,
+      hsl(38 70% 52%) 0%,
+      hsl(44 78% 64%) 45%,
+      hsl(36 60% 44%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* engraved / illuminated panel edge */
+  .ornate-border {
+    box-shadow:
+      0 0 0 1px hsl(var(--border)),
+      inset 0 0 0 1px hsl(42 50% 99% / 0.6),
+      inset 0 0 24px hsl(38 40% 70% / 0.12);
+  }
+
+  .gold-glow {
+    box-shadow: 0 18px 50px -24px hsl(38 62% 40% / 0.55);
+  }
+
+  /* soft drifting mist used over the hero */
+  .mist {
+    background: radial-gradient(
+        60% 50% at 50% 100%,
+        hsl(var(--background) / 0.9),
+        transparent 70%
+      ),
+      radial-gradient(40% 30% at 20% 60%, hsl(210 30% 80% / 0.18), transparent 70%),
+      radial-gradient(50% 40% at 80% 50%, hsl(210 30% 85% / 0.14), transparent 70%);
+  }
+
+  .animate-mist {
+    animation: mist-drift 24s ease-in-out infinite alternate;
+  }
+  .animate-float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
+}
+
+@keyframes mist-drift {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mist,
+  .animate-float-slow {
+    animation: none;
   }
 }
