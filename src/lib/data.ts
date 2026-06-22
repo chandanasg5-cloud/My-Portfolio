@@ -85,16 +85,30 @@ export const projects = [
   {
     title: 'Funnel and KPI Analysis, Hazmat Industry',
     org: 'DePaul University Capstone',
-    description:
-      'A multi-stage funnel analysis identifying KPI drop-off and workflow bottlenecks in a compliance process. Recommendations improved tracking efficiency by roughly 30 percent.',
+    context:
+      'A compliance process in the hazardous-materials industry was losing efficiency to unclear KPI drop-off and hidden workflow bottlenecks.',
+    role: 'Lead analyst on the capstone team, owning problem framing through recommendation.',
+    actions: [
+      'Mapped the end-to-end process and built a multi-stage funnel to locate where KPIs dropped off.',
+      'Ran hypothesis-driven analysis to isolate the bottlenecks with the largest impact.',
+      'Translated findings into prioritized, defensible recommendations for stakeholders.',
+    ],
+    outcome: 'Recommendations improved tracking efficiency by roughly 30 percent.',
     metric: '+30%',
     metricLabel: 'tracking efficiency',
   },
   {
     title: 'Operations KPI Dashboard',
     org: 'Marketplace Direct Ltd',
-    description:
-      'A Tableau and Excel reporting suite covering 15+ KPIs across procurement and operations, enabling faster decisions across five business units.',
+    context:
+      'Procurement and operations leaders across five business units lacked a single, trusted view of performance.',
+    role: 'Business analyst owning the reporting solution end to end.',
+    actions: [
+      'Defined and consolidated 15+ KPIs spanning procurement and operations.',
+      'Built a Tableau and Excel reporting suite tailored to senior stakeholders.',
+      'Standardized metric definitions to cut reporting discrepancies and rework.',
+    ],
+    outcome: 'Faster, better-aligned decisions across all five business units.',
     metric: '15+',
     metricLabel: 'KPIs unified',
   },

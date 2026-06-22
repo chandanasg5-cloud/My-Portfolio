@@ -48,29 +48,73 @@ export default function WorkPage() {
       </div>
 
       <div className="mt-24">
-        <LoreHeading label="Selected Projects" lore="Artifacts Forged" />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <LoreHeading
+          label="Selected Projects"
+          lore="Artifacts Forged"
+          line="Each told as a short case study — the challenge, my role, the work, and the result."
+        />
+        <div className="mt-10 space-y-8">
           {projects.map((p) => (
-            <div
+            <article
               key={p.title}
-              className="ornate-border relative rounded-2xl bg-card p-7 transition-colors hover:border-accent/50"
+              className="ornate-border relative rounded-2xl bg-card p-7 transition-colors hover:border-accent/50 sm:p-9"
             >
               <Ornament position="tl" />
+              <Ornament position="tr" />
+              <Ornament position="bl" />
               <Ornament position="br" />
-              <div className="flex items-start justify-between gap-4">
-                <p className="font-display text-xs uppercase tracking-[0.16em] text-gold">{p.org}</p>
-                <div className="text-right">
-                  <p className="font-display text-2xl font-semibold leading-none text-primary">
+
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="font-display text-xs uppercase tracking-[0.16em] text-gold">
+                    {p.org}
+                  </p>
+                  <h3 className="mt-2 font-display text-xl font-semibold leading-snug tracking-wide sm:text-2xl">
+                    {p.title}
+                  </h3>
+                </div>
+                <div className="shrink-0 text-right">
+                  <p className="font-display text-3xl font-semibold leading-none text-primary">
                     {p.metric}
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">{p.metricLabel}</p>
                 </div>
               </div>
-              <h3 className="mt-3 font-display text-lg font-semibold leading-snug tracking-wide">
-                {p.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{p.description}</p>
-            </div>
+
+              <div className="mt-6 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+                <div>
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
+                    Context
+                  </p>
+                  <p className="mt-1.5 leading-relaxed text-muted-foreground">{p.context}</p>
+                </div>
+                <div>
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
+                    My Role
+                  </p>
+                  <p className="mt-1.5 leading-relaxed text-muted-foreground">{p.role}</p>
+                </div>
+                <div>
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
+                    Actions
+                  </p>
+                  <ul className="mt-1.5 space-y-1.5 text-muted-foreground">
+                    {p.actions.map((a, i) => (
+                      <li key={i} className="flex items-start gap-2.5 leading-relaxed">
+                        <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
+                    Outcome
+                  </p>
+                  <p className="mt-1.5 leading-relaxed text-foreground">{p.outcome}</p>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
