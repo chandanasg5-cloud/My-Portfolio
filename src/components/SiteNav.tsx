@@ -15,19 +15,18 @@ export default function SiteNav() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-accent/25 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/65">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/65">
       <nav className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6 sm:px-8">
         <Link href="/" className="group flex items-center gap-2.5">
-          {/* small elven leaf glyph */}
-          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden className="text-accent">
-            <path
-              d="M9 1 C12 5 12 13 9 17 C6 13 6 5 9 1 Z"
-              fill="currentColor"
-              fillOpacity="0.85"
-            />
-            <path d="M9 3 V15" stroke="hsl(var(--background))" strokeWidth="0.8" />
-          </svg>
-          <span className="font-display text-base font-semibold uppercase tracking-[0.14em]">
+          {/* bar-chart mark */}
+          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden>
+              <rect x="2" y="9" width="2.6" height="5" rx="0.6" fill="white" fillOpacity="0.95" />
+              <rect x="6.7" y="6" width="2.6" height="8" rx="0.6" fill="white" fillOpacity="0.8" />
+              <rect x="11.4" y="3" width="2.6" height="11" rx="0.6" fill="white" />
+            </svg>
+          </span>
+          <span className="font-display text-base font-semibold tracking-tight">
             Chandana Gowda
           </span>
         </Link>
@@ -39,13 +38,13 @@ export default function SiteNav() {
                 <Link
                   href={href}
                   className={cn(
-                    'relative text-sm tracking-wide transition-colors',
+                    'relative text-sm transition-colors',
                     active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
                   {label}
                   {active && (
-                    <span className="absolute -bottom-1.5 left-0 h-px w-full bg-accent" />
+                    <span className="absolute -bottom-1.5 left-0 h-px w-full bg-primary" />
                   )}
                 </Link>
               </li>

@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#2e5a49"/>
-  <path d="M32 9 C40 22 40 42 32 55 C24 42 24 22 32 9 Z" fill="#e9c879" fill-opacity="0.18"/>
-  <path d="M32 12 V52" stroke="#e9c879" stroke-width="1.4" stroke-opacity="0.5"/>
-  <text x="50%" y="50%" dy="0.02em" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" fill="#e9c879">
+  <rect width="64" height="64" rx="14" fill="#0a7152"/>
+  <text x="50%" y="52%" text-anchor="middle" dominant-baseline="central"
+        font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="30"
+        font-weight="700" letter-spacing="-1" fill="#ffffff">
     CG
   </text>
 </svg>

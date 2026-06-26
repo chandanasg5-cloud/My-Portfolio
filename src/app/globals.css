@@ -4,33 +4,29 @@
 
 @layer base {
   :root {
-    /* Rivendell — parchment day palette */
-    --background: 40 38% 94%;
-    --foreground: 28 22% 15%;
-    --card: 42 46% 97%;
-    --card-foreground: 28 22% 15%;
-    --popover: 42 46% 97%;
-    --popover-foreground: 28 22% 15%;
-    /* Rivendell forest green */
-    --primary: 156 34% 27%;
-    --primary-foreground: 42 46% 97%;
-    --secondary: 40 24% 90%;
-    --secondary-foreground: 28 22% 15%;
-    --muted: 40 22% 89%;
-    --muted-foreground: 28 12% 38%;
-    /* mithril / autumn gold */
-    --accent: 38 62% 47%;
-    --accent-foreground: 28 30% 12%;
-    --destructive: 4 64% 42%;
-    --destructive-foreground: 42 46% 97%;
-    --border: 38 24% 82%;
-    --input: 38 24% 82%;
-    --ring: 38 62% 47%;
-    --radius: 0.5rem;
-
-    /* twilight tones for the hero */
-    --twilight: 215 38% 12%;
-    --twilight-deep: 220 42% 8%;
+    /* Clean Analytics — light, professional palette */
+    --background: 210 20% 98%;
+    --foreground: 222 24% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 24% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 24% 14%;
+    /* deep emerald — the single brand accent */
+    --primary: 162 84% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 16% 95%;
+    --secondary-foreground: 222 24% 14%;
+    --muted: 210 16% 96%;
+    --muted-foreground: 215 14% 42%;
+    /* slightly brighter emerald for links, charts, highlights */
+    --accent: 160 84% 30%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 20% 90%;
+    --input: 214 20% 88%;
+    --ring: 162 84% 24%;
+    --radius: 0.75rem;
   }
 }
 
@@ -45,98 +41,63 @@
     @apply bg-background text-foreground;
     /* clip (not hidden) keeps position: sticky working on the nav */
     overflow-x: clip;
-    font-feature-settings: 'kern', 'liga';
-    /* faint parchment grain */
-    background-image:
-      radial-gradient(hsl(38 30% 70% / 0.05) 1px, transparent 1px),
-      radial-gradient(hsl(38 40% 60% / 0.04) 1px, transparent 1px);
-    background-size: 18px 18px, 31px 31px;
-    background-position: 0 0, 9px 14px;
-  }
-  .font-serif {
-    font-family: var(--font-serif), Georgia, serif;
+    font-feature-settings: 'kern', 'liga', 'cv11', 'ss01';
   }
   .font-sans {
     font-family: var(--font-sans), system-ui, sans-serif;
   }
   .font-display {
-    font-family: var(--font-display), var(--font-serif), Georgia, serif;
-    letter-spacing: 0.01em;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, 'SFMono-Regular', monospace;
   }
 }
 
 @layer utilities {
-  /* gold gradient text for accents */
-  .text-gold {
-    color: hsl(var(--accent));
-  }
-  .gold-gradient {
+  /* emerald gradient text for the one accent phrase in the hero */
+  .accent-gradient {
     background: linear-gradient(
       100deg,
-      hsl(38 70% 52%) 0%,
-      hsl(44 78% 64%) 45%,
-      hsl(36 60% 44%) 100%
+      hsl(162 84% 28%) 0%,
+      hsl(160 84% 36%) 55%,
+      hsl(158 76% 30%) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  /* engraved / illuminated panel edge */
-  .ornate-border {
+  /* small uppercase tracked label, monospace — the "data" voice */
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.72rem;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* soft elevated surface for cards that need lift */
+  .card-elevated {
     box-shadow:
-      0 0 0 1px hsl(var(--border)),
-      inset 0 0 0 1px hsl(42 50% 99% / 0.6),
-      inset 0 0 24px hsl(38 40% 70% / 0.12);
+      0 1px 2px hsl(222 24% 14% / 0.04),
+      0 8px 24px -12px hsl(222 24% 14% / 0.12);
   }
 
-  .gold-glow {
-    box-shadow: 0 18px 50px -24px hsl(38 62% 40% / 0.55);
-  }
-
-  /* soft drifting mist used over the hero */
-  .mist {
-    background: radial-gradient(
-        60% 50% at 50% 100%,
-        hsl(var(--background) / 0.9),
-        transparent 70%
-      ),
-      radial-gradient(40% 30% at 20% 60%, hsl(210 30% 80% / 0.18), transparent 70%),
-      radial-gradient(50% 40% at 80% 50%, hsl(210 30% 85% / 0.14), transparent 70%);
-  }
-
-  .animate-mist {
-    animation: mist-drift 24s ease-in-out infinite alternate;
-  }
-  .animate-float-slow {
-    animation: float-slow 7s ease-in-out infinite;
-  }
-}
-
-@keyframes mist-drift {
-  0% {
-    transform: translate3d(-2%, 0, 0) scale(1.05);
-    opacity: 0.85;
-  }
-  100% {
-    transform: translate3d(2%, -2%, 0) scale(1.12);
-    opacity: 1;
-  }
-}
-
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-mist,
-  .animate-float-slow {
-    animation: none;
+  /* faint dot-grid backdrop — a nod to graph paper / dashboards */
+  .grid-backdrop {
+    background-image: radial-gradient(
+      hsl(215 16% 60% / 0.16) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+    background-position: -1px -1px;
+    -webkit-mask-image: radial-gradient(
+      80% 80% at 50% 30%,
+      black 35%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(80% 80% at 50% 30%, black 35%, transparent 78%);
   }
 }

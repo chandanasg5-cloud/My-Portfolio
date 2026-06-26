@@ -1,27 +1,26 @@
-import ElvenDivider from './ElvenDivider'
-
 /**
- * Page-level header (h1) with light lore framing, used at the top of
- * inner pages. Mirrors LoreHeading but renders an h1 for SEO/semantics.
+ * Page-level header (h1) for inner pages. The h1 counterpart of
+ * SectionHeading: monospace eyebrow, large tight title, hairline rule,
+ * and an optional supporting line.
  */
 export default function PageHeader({
-  label,
-  lore,
+  eyebrow,
+  title,
   line,
 }: {
-  label: string
-  lore: string
+  eyebrow: string
+  title: string
   line?: string
 }) {
   return (
     <header className="pt-20 sm:pt-24">
-      <p className="font-serif text-sm italic text-gold">{lore}</p>
-      <h1 className="mt-1 font-display text-4xl font-semibold uppercase tracking-[0.06em] sm:text-5xl">
-        {label}
+      <p className="eyebrow text-primary">{eyebrow}</p>
+      <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+        {title}
       </h1>
-      <ElvenDivider width={200} className="mt-5 justify-start" />
+      <div className="mt-5 h-px w-16 bg-primary/50" />
       {line && (
-        <p className="mt-5 max-w-2xl font-serif text-lg italic leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           {line}
         </p>
       )}

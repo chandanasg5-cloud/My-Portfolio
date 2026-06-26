@@ -3,23 +3,21 @@ import { stats } from '@/lib/data'
 import Hero from '@/components/Hero'
 import DashboardCard from '@/components/viz/DashboardCard'
 import Reveal from '@/components/viz/Reveal'
-import LoreHeading from '@/components/theme/LoreHeading'
-import ElvenDivider from '@/components/theme/ElvenDivider'
-import Ornament from '@/components/theme/Ornament'
+import SectionHeading from '@/components/theme/SectionHeading'
 
-const trials = [
+const steps = [
   {
-    step: 'I',
+    n: '01',
     title: 'Frame',
     body: 'Define the business question, the decision it serves, and the hypothesis worth testing.',
   },
   {
-    step: 'II',
+    n: '02',
     title: 'Analyze',
     body: 'Model the data in SQL, Tableau, and Power BI. Validate, segment, and pressure-test the signal.',
   },
   {
-    step: 'III',
+    n: '03',
     title: 'Recommend',
     body: 'Translate findings into a clear, defensible recommendation and a plan to monitor it.',
   },
@@ -33,10 +31,10 @@ export default function Home() {
       {/* Stats — By the Numbers */}
       <Reveal>
         <section className="pt-16 sm:pt-20">
-          <LoreHeading
-            label="By the Numbers"
-            lore="Tokens of the Road Travelled"
-            line="Four years of work, told plainly in the marks it left behind."
+          <SectionHeading
+            eyebrow="By the Numbers"
+            title="Four years, measured in outcomes"
+            line="The work, told plainly in the marks it left behind."
             align="center"
             divider
           />
@@ -44,12 +42,13 @@ export default function Home() {
             {stats.map(({ number, label }) => (
               <div
                 key={label}
-                className="ornate-border relative rounded-2xl bg-card p-7 text-center transition-colors hover:border-accent/50"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 text-center transition-all hover:border-primary/40 hover:shadow-[0_10px_30px_-18px_hsl(162_84%_24%/0.4)]"
               >
-                <Ornament position="tl" />
-                <Ornament position="br" />
-                <p className="font-display text-4xl font-semibold text-primary sm:text-5xl">{number}</p>
-                <div className="mx-auto mt-4 h-px w-10 bg-accent/60" />
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-primary/0 transition-colors group-hover:bg-primary/60" />
+                <p className="font-display text-4xl font-semibold tracking-tight text-primary sm:text-5xl">
+                  {number}
+                </p>
+                <div className="mx-auto mt-4 h-px w-10 bg-border" />
                 <p className="mt-4 text-sm text-muted-foreground">{label}</p>
               </div>
             ))}
@@ -57,23 +56,23 @@ export default function Home() {
         </section>
       </Reveal>
 
-      {/* The Three Trials + illuminated dashboard */}
+      {/* How I Work + dashboard */}
       <Reveal delay={0.1}>
         <section className="mt-20 grid items-start gap-10 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <LoreHeading
-              label="How I Work"
-              lore="The Three Trials"
-              line="Every quest follows the same path — from question to outcome."
+            <SectionHeading
+              eyebrow="How I Work"
+              title="From question to outcome"
+              line="Every engagement follows the same path — framed, analyzed, and resolved."
             />
             <div className="mt-8 space-y-7">
-              {trials.map(({ step, title, body }) => (
-                <div key={step} className="flex gap-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/40 font-display text-sm font-semibold text-gold">
-                    {step}
+              {steps.map(({ n, title, body }) => (
+                <div key={n} className="flex gap-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 font-mono text-sm font-semibold text-primary">
+                    {n}
                   </div>
                   <div>
-                    <p className="font-display text-lg font-medium tracking-wide">{title}</p>
+                    <p className="font-display text-lg font-semibold tracking-tight">{title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </div>
@@ -89,24 +88,23 @@ export default function Home() {
 
       {/* Closing call */}
       <Reveal delay={0.1}>
-        <section className="mt-24 text-center">
-          <ElvenDivider width={240} />
-          <p className="mx-auto mt-6 max-w-xl font-serif text-lg italic leading-relaxed text-foreground">
-            “Not all those who wander are lost.” The best analysis begins with the
-            right question — let’s find yours.
+        <section className="mt-24 rounded-3xl border border-border bg-card px-6 py-14 text-center sm:px-10">
+          <p className="eyebrow text-primary">Let&rsquo;s talk</p>
+          <p className="mx-auto mt-4 max-w-xl font-display text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-3xl">
+            Have a problem worth framing? The best analysis starts with the right question.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/work"
-              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
             >
-              View the Quests
+              View Work
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-border px-7 py-3 text-sm font-medium transition-colors hover:border-accent"
+              className="rounded-full border border-border px-7 py-3 text-sm font-medium transition-colors hover:border-primary/60"
             >
-              Send Word
+              Get in Touch
             </Link>
           </div>
         </section>
