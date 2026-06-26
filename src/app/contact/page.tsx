@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { profile } from '@/lib/data'
 import ContactForm from '@/components/ContactForm'
 import PageHeader from '@/components/theme/PageHeader'
-import LoreHeading from '@/components/theme/LoreHeading'
+import SectionHeading from '@/components/theme/SectionHeading'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -22,8 +22,8 @@ export default function ContactPage() {
   return (
     <section className="pb-24">
       <PageHeader
-        label="Send Word"
-        lore="By Raven or by Road"
+        eyebrow="Contact"
+        title="Get in touch"
         line="I am open to Business Analyst roles in Chicago and beyond. If you have a problem worth framing, I would like to hear about it."
       />
 
@@ -31,14 +31,14 @@ export default function ContactPage() {
         <dl className="divide-y divide-border border-y border-border">
           {channels.map(({ label, value, href }) => (
             <div key={label} className="flex items-center justify-between py-5">
-              <dt className="font-display text-sm uppercase tracking-[0.16em] text-muted-foreground">{label}</dt>
+              <dt className="eyebrow text-muted-foreground">{label}</dt>
               <dd className="text-right">
                 {href ? (
                   <a
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel="noopener noreferrer"
-                    className="font-medium transition-colors hover:text-gold"
+                    className="font-medium transition-colors hover:text-primary"
                   >
                     {value}
                   </a>
@@ -51,8 +51,8 @@ export default function ContactPage() {
         </dl>
 
         <div>
-          <LoreHeading label="Send a Message" lore="A Note to the House" />
-          <p className="mt-2 text-sm text-muted-foreground">
+          <SectionHeading eyebrow="Inbox" title="Send a message" />
+          <p className="mt-3 text-sm text-muted-foreground">
             For recruiters and hiring teams. Drop a note and it reaches my inbox directly.
           </p>
           <div className="mt-6">

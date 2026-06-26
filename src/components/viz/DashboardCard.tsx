@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Ornament from '@/components/theme/Ornament'
 
 const bars = [38, 52, 44, 67, 58, 80, 72]
 const line = [20, 34, 28, 46, 40, 60, 76]
@@ -22,18 +21,13 @@ export default function DashboardCard() {
       initial={{ opacity: 0, y: 24, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-      className="ornate-border gold-glow relative w-full rounded-3xl bg-card p-6"
+      className="card-elevated relative w-full rounded-3xl border border-border bg-card p-6"
     >
-      <Ornament position="tl" />
-      <Ornament position="tr" />
-      <Ornament position="bl" />
-      <Ornament position="br" />
-
       {/* Header row */}
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <p className="font-serif text-xs italic text-gold">The Ledger of Deeds</p>
-          <p className="font-display text-lg font-semibold tracking-wide">KPI Overview</p>
+          <p className="eyebrow text-primary">Operations · Last 7 days</p>
+          <p className="mt-2 font-display text-lg font-semibold tracking-tight">KPI Overview</p>
         </div>
         <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { experience, projects } from '@/lib/data'
 import PageHeader from '@/components/theme/PageHeader'
-import LoreHeading from '@/components/theme/LoreHeading'
-import Ornament from '@/components/theme/Ornament'
+import SectionHeading from '@/components/theme/SectionHeading'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -15,29 +14,27 @@ export default function WorkPage() {
   return (
     <section className="pb-24">
       <PageHeader
-        label="Work"
-        lore="Quests Undertaken"
-        line="Each role a road walked from question to outcome — the deeds, told plainly."
+        eyebrow="Work"
+        title="Work"
+        line="Each role and project, walked from question to outcome — the work, told plainly."
       />
 
       <div className="mt-16">
-        <LoreHeading label="Experience" lore="The Road So Far" />
-        <div className="mt-10 space-y-12 border-l-2 border-accent/25 pl-6 sm:pl-8">
+        <SectionHeading eyebrow="Career" title="Experience" />
+        <div className="mt-10 space-y-12 border-l-2 border-border pl-6 sm:pl-8">
           {experience.map((job) => (
             <article key={job.role} className="relative">
               {/* milestone marker */}
-              <span className="absolute -left-[1.95rem] top-1.5 h-2.5 w-2.5 rotate-45 border border-accent bg-background sm:-left-[2.45rem]" />
-              <p className="font-display text-xs uppercase tracking-[0.16em] text-gold">
-                {job.period}
-              </p>
-              <h3 className="mt-1 font-display text-xl font-semibold tracking-wide">{job.role}</h3>
+              <span className="absolute -left-[1.85rem] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-primary bg-background sm:-left-[2.35rem]" />
+              <p className="eyebrow text-primary">{job.period}</p>
+              <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">{job.role}</h3>
               <p className="mt-0.5 text-sm text-primary">
                 {job.company}, {job.location}
               </p>
               <ul className="mt-4 space-y-2 text-muted-foreground">
                 {job.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 leading-relaxed">
-                    <span className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                    <span className="mt-2.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
                     {b}
                   </li>
                 ))}
@@ -48,33 +45,26 @@ export default function WorkPage() {
       </div>
 
       <div className="mt-24">
-        <LoreHeading
-          label="Selected Projects"
-          lore="Artifacts Forged"
+        <SectionHeading
+          eyebrow="Case Studies"
+          title="Selected Projects"
           line="Each told as a short case study — the challenge, my role, the work, and the result."
         />
         <div className="mt-10 space-y-8">
           {projects.map((p) => (
             <article
               key={p.title}
-              className="ornate-border relative rounded-2xl bg-card p-7 transition-colors hover:border-accent/50 sm:p-9"
+              className="card-elevated relative rounded-2xl border border-border bg-card p-7 transition-colors hover:border-primary/40 sm:p-9"
             >
-              <Ornament position="tl" />
-              <Ornament position="tr" />
-              <Ornament position="bl" />
-              <Ornament position="br" />
-
               <div className="flex items-start justify-between gap-6">
                 <div>
-                  <p className="font-display text-xs uppercase tracking-[0.16em] text-gold">
-                    {p.org}
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-semibold leading-snug tracking-wide sm:text-2xl">
+                  <p className="eyebrow text-primary">{p.org}</p>
+                  <h3 className="mt-2 font-display text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
                     {p.title}
                   </h3>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="font-display text-3xl font-semibold leading-none text-primary">
+                  <p className="font-display text-3xl font-semibold leading-none tracking-tight text-primary">
                     {p.metric}
                   </p>
                   <p className="mt-1 text-[11px] text-muted-foreground">{p.metricLabel}</p>
@@ -83,35 +73,27 @@ export default function WorkPage() {
 
               <div className="mt-6 grid gap-x-10 gap-y-5 sm:grid-cols-2">
                 <div>
-                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
-                    Context
-                  </p>
-                  <p className="mt-1.5 leading-relaxed text-muted-foreground">{p.context}</p>
+                  <p className="eyebrow text-primary">Context</p>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">{p.context}</p>
                 </div>
                 <div>
-                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
-                    My Role
-                  </p>
-                  <p className="mt-1.5 leading-relaxed text-muted-foreground">{p.role}</p>
+                  <p className="eyebrow text-primary">My Role</p>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">{p.role}</p>
                 </div>
                 <div>
-                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
-                    Actions
-                  </p>
-                  <ul className="mt-1.5 space-y-1.5 text-muted-foreground">
+                  <p className="eyebrow text-primary">Actions</p>
+                  <ul className="mt-2 space-y-1.5 text-muted-foreground">
                     {p.actions.map((a, i) => (
                       <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-                        <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                        <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
                         {a}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-gold">
-                    Outcome
-                  </p>
-                  <p className="mt-1.5 leading-relaxed text-foreground">{p.outcome}</p>
+                  <p className="eyebrow text-primary">Outcome</p>
+                  <p className="mt-2 leading-relaxed text-foreground">{p.outcome}</p>
                 </div>
               </div>
             </article>

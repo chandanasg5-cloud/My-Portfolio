@@ -41,7 +41,7 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className="rounded-2xl border border-border bg-card p-8">
-        <p className="font-serif text-xl font-semibold">Thank you.</p>
+        <p className="font-display text-xl font-semibold tracking-tight">Thank you.</p>
         <p className="mt-2 text-muted-foreground">
           Your message is on its way. I will get back to you soon.
         </p>
@@ -106,9 +106,9 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="rounded-full bg-gradient-to-b from-amber-400 to-amber-600 px-7 py-3 text-sm font-semibold text-stone-900 shadow-[0_10px_30px_-12px_rgba(217,160,60,0.7)] transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-50"
+        className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_30px_-12px_hsl(162_84%_24%/0.6)] transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-50"
       >
-        {status === 'sending' ? 'Sending…' : 'Send Word'}
+        {status === 'sending' ? 'Sending…' : 'Send Message'}
       </button>
     </form>
   )
