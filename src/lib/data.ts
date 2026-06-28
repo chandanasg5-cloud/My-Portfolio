@@ -5,6 +5,7 @@ export const profile = {
   email: 'chandanasg5@gmail.com',
   phone: '(262) 993-2691',
   linkedin: 'https://www.linkedin.com/in/chandanasgowda26',
+  github: 'https://github.com/chandanasg5-cloud',
   summary:
     'Senior Business Analyst with four years of experience across operations, risk, and marketing. I turn complex data into clear, defensible recommendations using SQL, Tableau, Power BI, and structured, hypothesis-driven analysis.',
 }
@@ -81,7 +82,19 @@ export const skills = [
   { category: 'Delivery', items: ['Problem Framing', 'UAT', 'Jira', 'Stakeholder Management'] },
 ]
 
-export const projects = [
+type ProjectLink = { label: string; href: string }
+
+export const projects: {
+  title: string
+  org: string
+  context: string
+  role: string
+  actions: string[]
+  outcome: string
+  metric: string
+  metricLabel: string
+  links: ProjectLink[]
+}[] = [
   {
     title: 'Funnel and KPI Analysis, Hazmat Industry',
     org: 'DePaul University Capstone',
@@ -96,6 +109,7 @@ export const projects = [
     outcome: 'Recommendations improved tracking efficiency by roughly 30 percent.',
     metric: '+30%',
     metricLabel: 'tracking efficiency',
+    links: [],
   },
   {
     title: 'Operations KPI Dashboard',
@@ -111,6 +125,71 @@ export const projects = [
     outcome: 'Faster, better-aligned decisions across all five business units.',
     metric: '15+',
     metricLabel: 'KPIs unified',
+    links: [],
+  },
+  {
+    title: 'FinOps Command Center',
+    org: 'Self-Directed Project',
+    context:
+      'Early-stage founders had no single screen to answer the questions that decide a startup’s survival: how long until cash runs out, where the money is going, and whether anything is going wrong.',
+    role: 'Sole designer and builder, from data model through the analytics engine and UI.',
+    actions: [
+      'Built a pure, fully unit-tested finance engine for cash runway, burn rate, revenue forecasts, and vendor concentration risk via the HHI index.',
+      'Added anomaly detection that automatically flags duplicate vendor payments and spend spikes without being told where to look.',
+      'Layered a deterministic rule-based analyst that ranks every finding by severity and explains, in plain English, what changed and why.',
+    ],
+    outcome:
+      'A single decision screen that turns raw financial data into ranked, plain-English actions — runway, risk, and anomalies at a glance.',
+    metric: '5',
+    metricLabel: 'finance modules unified',
+    links: [
+      { label: 'Live demo', href: 'https://finops-command-center.vercel.app' },
+      { label: 'GitHub', href: 'https://github.com/chandanasg5-cloud/finops-command-center' },
+    ],
+  },
+  {
+    title: 'TRACE: Early High-Value Customer Prediction',
+    org: 'Independent Research',
+    context:
+      'Customer-lifetime-value models are usually scored on the whole population, which lets a model look accurate just by re-identifying already high-spend customers while missing those whose spend is about to climb.',
+    role: 'Author of the paper and reference implementation, owning the method, model, and evaluation.',
+    actions: [
+      'Designed the Trajectory-Signal Validity (TSV) test, which re-scores models on mid-spend customers against a naive threshold rule to expose hollow accuracy.',
+      'Built TRACE, a transformer sequence encoder with self-supervised contrastive pre-training over short transaction windows and late fusion of transaction and engagement signals.',
+      'Targeted the cold-start regime where aggregate RFM features are unstable, and published the work in IEEE format with a reference implementation.',
+    ],
+    outcome:
+      'A reusable audit that separates genuine trajectory signal from re-identification, paired with a model built to pass it.',
+    metric: '0.68',
+    metricLabel: 'TSV AUC threshold',
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/chandanasg5-cloud/Customer-Lifetime-Value-CLV-Customer-Segmentation',
+      },
+    ],
+  },
+  {
+    title: 'Healthcare Claims Policy Assistant',
+    org: 'Self-Directed Project',
+    context:
+      'Claims analysts need to know why a claim was denied and which policy rule applies — answers buried in long policy documents and easy for a generic chatbot to fabricate.',
+    role: 'Designed and built the full retrieval-augmented application, frontend to backend.',
+    actions: [
+      'Built an assistant that answers denial questions grounded in the actual policy documents and cites the governing rule id (e.g. COV-002.2).',
+      'Implemented retrieval with Postgres full-text search over chunked policy docs — no external embeddings service — and streamed answers via Server-Sent Events.',
+      'Re-architected a Streamlit prototype into a Next.js (Vercel) and Encore TypeScript (Encore Cloud) monorepo driven by GitHub CI/CD.',
+    ],
+    outcome:
+      'Traceable, policy-grounded answers — including drafted appeals — that cite their source rule rather than guessing.',
+    metric: '5',
+    metricLabel: 'analyst workflows',
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/chandanasg5-cloud/healthcare-claims-policy-assistant',
+      },
+    ],
   },
 ]
 

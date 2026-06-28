@@ -96,6 +96,22 @@ export default function WorkPage() {
                   <p className="mt-2 leading-relaxed text-foreground">{p.outcome}</p>
                 </div>
               </div>
+
+              {p.links.length > 0 && (
+                <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-5">
+                  {p.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="eyebrow text-primary transition-colors hover:text-accent"
+                    >
+                      {l.label} &rarr;
+                    </a>
+                  ))}
+                </div>
+              )}
             </article>
           ))}
         </div>

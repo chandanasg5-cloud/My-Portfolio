@@ -26,6 +26,14 @@ export default function SiteFooter() {
             >
               LinkedIn
             </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              GitHub
+            </a>
             <Link href="/contact" className="transition-colors hover:text-primary">
               Contact
             </Link>

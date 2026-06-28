@@ -73,7 +73,7 @@ const personJsonLd = {
   telephone: profile.phone,
   url: SITE_URL,
   address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
-  sameAs: [profile.linkedin],
+  sameAs: [profile.linkedin, profile.github],
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'DePaul University' },
     { '@type': 'CollegeOrUniversity', name: 'Kingston University' },

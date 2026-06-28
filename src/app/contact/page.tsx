@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 const channels = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
   { label: 'LinkedIn', value: 'in/chandanasgowda26', href: profile.linkedin },
+  { label: 'GitHub', value: 'chandanasg5-cloud', href: profile.github },
   { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\D/g, '')}` },
   { label: 'Location', value: profile.location, href: '' },
 ]
