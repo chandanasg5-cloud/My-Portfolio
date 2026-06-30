@@ -1,13 +1,13 @@
 export const profile = {
   name: 'Chandana S. Gowda',
-  title: 'Senior Business Analyst',
+  title: 'Business Analyst',
   location: 'Chicago, IL',
   email: 'chandanasg5@gmail.com',
   phone: '(262) 993-2691',
   linkedin: 'https://www.linkedin.com/in/chandanasgowda26',
   github: 'https://github.com/chandanasg5-cloud',
   summary:
-    'Senior Business Analyst with four years of experience across operations, risk, and marketing. I turn complex data into clear, defensible recommendations using SQL, Tableau, Power BI, and structured, hypothesis-driven analysis.',
+    'Business Analyst with four years of experience across operations, risk, and marketing. I turn complex data into clear, defensible recommendations using SQL, Tableau, Power BI, and structured, hypothesis-driven analysis.',
 }
 
 export const stats = [

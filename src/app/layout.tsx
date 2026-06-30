@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     template: '%s · Chandana S. Gowda',
   },
   description:
-    'Senior Business Analyst with four years of experience turning complex data into clear, defensible recommendations using SQL, Tableau, and Power BI. Based in Chicago.',
+    'Business Analyst with four years of experience turning complex data into clear, defensible recommendations using SQL, Tableau, and Power BI. Based in Chicago.',
   keywords: [
     'Chandana Gowda',
     'Business Analyst',
-    'Senior Business Analyst',
+    'Business Analyst',
     'Data Analyst',
     'SQL',
     'Tableau',
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
     siteName: 'Chandana S. Gowda',
     title: 'Chandana S. Gowda · Business Analyst',
     description:
-      'Senior Business Analyst turning complex data into clear, defensible recommendations.',
+      'Business Analyst turning complex data into clear, defensible recommendations.',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Chandana S. Gowda · Business Analyst',
     description:
-      'Senior Business Analyst turning complex data into clear, defensible recommendations.',
+      'Business Analyst turning complex data into clear, defensible recommendations.',
   },
   robots: {
     index: true,

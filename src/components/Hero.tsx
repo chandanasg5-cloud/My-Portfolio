@@ -26,7 +26,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="eyebrow text-primary"
           >
-            Senior Business Analyst · Chicago
+            Business Analyst · Chicago
           </motion.p>
 
           <motion.h1

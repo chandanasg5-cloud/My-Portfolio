@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Chandana S. Gowda · Senior Business Analyst'
+export const alt = 'Chandana S. Gowda · Business Analyst'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             CG
           </div>
           <div style={{ fontSize: 28, color: '#0c8d62', letterSpacing: 4 }}>
-            SENIOR BUSINESS ANALYST
+            BUSINESS ANALYST
           </div>
         </div>
 

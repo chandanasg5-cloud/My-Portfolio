@@ -7,7 +7,7 @@ import SectionHeading from '@/components/theme/SectionHeading'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Chandana S. Gowda, Senior Business Analyst based in Chicago. Open to new Business Analyst roles.',
+    'Get in touch with Chandana S. Gowda, Business Analyst based in Chicago. Open to new Business Analyst roles.',
   alternates: { canonical: '/contact' },
 }
 

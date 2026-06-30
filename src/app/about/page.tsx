@@ -7,7 +7,7 @@ import SectionHeading from '@/components/theme/SectionHeading'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Chandana S. Gowda is a Senior Business Analyst with a Master of Science in Business Analytics from DePaul University, skilled in SQL, Tableau, Power BI, and hypothesis-driven analysis.',
+    'Chandana S. Gowda is a Business Analyst with a Master of Science in Business Analytics from DePaul University, skilled in SQL, Tableau, Power BI, and hypothesis-driven analysis.',
   alternates: { canonical: '/about' },
 }
 
