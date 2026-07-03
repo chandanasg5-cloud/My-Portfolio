@@ -87,7 +87,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           className="relative mx-auto w-full max-w-[330px] lg:mx-0 lg:ml-auto"
         >
-          <div className="card-elevated rounded-3xl border border-border bg-card p-2.5">
+          <div className="card-elevated relative rounded-3xl border border-border bg-card p-2.5">
             <Image
               src="/portrait.jpg"
               alt={`${profile.name}, ${profile.title}`}
@@ -96,24 +96,25 @@ export default function Hero() {
               priority
               className="h-auto w-full rounded-[1.15rem] object-cover"
             />
-          </div>
 
-          {/* floating KPI chip — a touch of data flavor */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="card-elevated absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 font-mono text-sm font-semibold text-primary">
-              +20%
-            </span>
-            <span className="text-left text-xs leading-tight text-muted-foreground">
-              workflow
-              <br />
-              efficiency gained
-            </span>
-          </motion.div>
+            {/* floating KPI chip — anchored to the photo card so it never
+                collides with the caption below */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="card-elevated absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 font-mono text-sm font-semibold text-primary">
+                +20%
+              </span>
+              <span className="text-left text-xs leading-tight text-muted-foreground">
+                workflow
+                <br />
+                efficiency gained
+              </span>
+            </motion.div>
+          </div>
 
           <figcaption className="mt-5 text-center text-sm text-muted-foreground">
             {profile.name} · {profile.title}
