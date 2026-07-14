@@ -25,7 +25,7 @@
 - Consumes: the existing inline `projects` element type in `src/lib/data.ts` (`{ title, org, context, role, actions, outcome, metric, metricLabel, links: ProjectLink[] }`).
 - Produces: nothing new — later code already maps over `projects`.
 
-- [ ] **Step 1: Insert the new entry**
+- [x] **Step 1: Insert the new entry**
 
 In `src/lib/data.ts`, insert the following object as the FIRST element of the `projects` array (immediately after the opening `]= [` of the array literal, before the `Funnel and KPI Analysis, Hazmat Industry` entry):
 
@@ -54,19 +54,19 @@ In `src/lib/data.ts`, insert the following object as the FIRST element of the `p
 
 Note: keep the typographic characters (`’`, `—`, `–`) exactly as shown — other entries in this file use them directly in single-quoted strings.
 
-- [ ] **Step 2: Type-check**
+- [x] **Step 2: Type-check**
 
 Run: `cd ~/Desktop/Portfolio && node_modules/.bin/tsc --noEmit`
 Expected: exits 0 with no output.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/lib/data.ts
 git commit -m "Add America250 travel-demand forecast case study"
 ```
 
-- [ ] **Step 4: Push and verify on Vercel**
+- [x] **Step 4: Push and verify on Vercel**
 
 ```bash
 git push origin main
