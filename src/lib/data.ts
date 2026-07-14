@@ -96,6 +96,26 @@ export const projects: {
   links: ProjectLink[]
 }[] = [
   {
+    title: 'America250 Travel-Demand Forecast',
+    org: 'Self-Directed Project',
+    context:
+      'July 4, 2026 — America’s 250th anniversary — was projected to be a record travel window, but no public tool forecast its daily demand or showed where impact would concentrate using only free, cited data.',
+    role: 'Sole analyst and builder, from data pipeline through model selection, dashboard, and live validation.',
+    actions: [
+      'Built an ingestion pipeline over TSA, EIA, weather, and holiday data, then selected Prophet with a COVID-period indicator over SARIMA on a 2024–2025 holdout (6.33% vs 9.22% MAPE).',
+      'Validated the forecast against reality as TSA published actuals: all 9 days of the July 4th window landed inside the uncertainty interval.',
+      'Added a City Impact layer scoring 8 cities on exposure to anniversary demand — air capacity, events, and demographics — with live-adjustable weights.',
+    ],
+    outcome:
+      'A deployed dashboard whose forecast held up against real-world actuals — 4.5% live error, beating its own 6.33% holdout benchmark.',
+    metric: '4.5%',
+    metricLabel: 'live forecast error',
+    links: [
+      { label: 'Live demo', href: 'https://usa-250th-wrdksypyzzwjjdcucxn9pe.streamlit.app/' },
+      { label: 'GitHub', href: 'https://github.com/chandanasg5-cloud/USA-250th' },
+    ],
+  },
+  {
     title: 'Funnel and KPI Analysis, Hazmat Industry',
     org: 'DePaul University Capstone',
     context:
